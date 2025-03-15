@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Janala</title>
+    <link rel="shortcut icon" href="./assets/logo.png" type="image/x-icon">
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+    <!-- Bangla google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@100..900&display=swap" rel="stylesheet">
+    <!-- poppins google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- daisy ui -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        body{
+            font-family: "Noto Sans Bengali", "Poppins", sans-serif;
+            font-weight: 500;
+            font-style: normal;
+        }
+        .active{
+            background-color: #155dfc;
+            color: white;
+        }
+        
+    </style>
+</head>
+<body>
+    <main class="max-w-7xl mx-auto">
+        <header id="header" class="hidden sticky top-0 z-50 flex justify-between items-center bg-gray-200/98 border-b border-b-gray-400 text-black px-10 py-5 mb-10 shadow-md">
+            <div class="flex items-center justify-center gap-1 text-2xl">
+                <h1>English</h1>
+                <img src="./assets/logo.png" alt="Logo">
+                <h1>জানালা</h1>
+            </div>
+            <div class="flex items-center gap-5 text-lg">
+                <a href="#faq" onclick="headerAc('h-1')" id="h-1" class="btn border-blue-400 text-blue-800 hover:bg-blue-600 hover:text-white"><i class="fa-solid fa-circle-question"></i> FAQ</a>
+                <a href="#learn" onclick="headerAc('h-2')" id="h-2" class="btn border-blue-400 text-blue-800 hover:bg-blue-600 hover:text-white"><i class="fa-solid fa-book-open"></i> learn</a>
+                <a href="./index.html" class="btn border-blue-400 text-blue-800 hover:bg-blue-600 hover:text-white">Logout <i class="fa-solid fa-circle-arrow-left"></i></a>
+            </div>
+        </header>
+        <!-- hero srction -->
+        <section id="hero" class="flex justify-between items-center gap-5 px-10 py-5">
+            <div class="">
+                <h2 class="text-3xl font-bold py-3"><span class="text-sky-400">English</span> is Easy!</h2>
+                <p class="w-9/12 leading-8">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ</p>
+                <form class="flex flex-col gap-4 py-5" action="">
+                    <label class="input validator w-80">
+                        <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none" stroke="currentColor"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></g></svg>
+                        <input id="userName" type="input" placeholder="Username"/>
+                    </label>
+                    <label class="input validator w-80">
+                        <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none" stroke="currentColor"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z"></path><circle cx="16.5" cy="7.5" r=".5" fill="currentColor"></circle></g></svg>
+                        <input id="userPin" type="text" placeholder="Enter with (123456)" />
+                    </label>
+                    <button id="login" type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 transition w-80 active:scale-98 cursor-pointer">Login</button>
+                </form>
+            </div>
+            <div class="">
+                <img class="w-full" src="./assets/hero-student.png" alt="">
+            </div>
+        </section>
+        <!-- content nav -->
+        <nav id="learn" class="hidden text-center px-10 pt-25 my-5">
+            <h2 class="text-4xl font-bold py-5"><span class="text-sky-400">Let's</span> Learn Vocabularies</h2>
+            <div id="all-level" class="flex gap-6 flex-wrap justify-center px-10 py-5">
+                
+            </div>
+            <span id="loading-span" class="invisible w-10 h-10 loading loading-spinner text-primary text-center"></span>
+            
+        </nav>
+        <!-- content card -->
+        <section id="content-card" class="hidden grid grid-cols-3 justify-center items-center gap-4 bg-slate-100/50 rounded-lg mb-16 py-5 px-5">
+            <div class="col-span-3 text-center flex flex-col items-center">
+                <p class="text-2xl p-3">আপনি এখনো কোন Lesson Select করেন নি।</p>
+                <h2 class="text-5xl font-medium p-3">একটি Lesson Select করুন।</h2>
+            </div>
+        </section>
+        <!-- FAQ -->
+        <section id="faq" class="hidden py-20">
+            <h2 class="text-4xl text-center  font-bold py-8 mb-10"><span class="text-sky-400">Frequently</span> Asked Questions</h2>
+            <div class="collapse collapse-plus bg-base-100 border border-base-300 my-4 px-5">
+                <input type="radio" name="my-accordion-3" checked="checked" />
+                <div class="collapse-title font-semibold">What is difference between var, let, and const</div>
+                <div class="collapse-content text-sm">var can be used anywhere in a function, but it can be confusing because it is hoisted to the top. let is used for block where created. const  never change after being set.</div>
+            </div>
+            <div class="collapse collapse-plus bg-base-100 border border-base-300 my-4 px-5">
+                <input type="radio" name="my-accordion-3" />
+                <div class="collapse-title font-semibold">What is difference between map(), forEach(), and filter()</div>
+                <div class="collapse-content text-sm">map() creates a new array each element from original array. forEach() does not return anything. filter() creates a new array fullfil the condition.</div>
+            </div>
+            <div class="collapse collapse-plus bg-base-100 border border-base-300 my-4 px-5">
+                <input type="radio" name="my-accordion-3" />
+                <div class="collapse-title font-semibold">What are arrow functions and regular function, What is difference with them?</div>
+                <div class="collapse-content text-sm">arrow functions have a shorter syntax, Regular functions change depending on how they are called.</div>
+            </div>
+            <div class="collapse collapse-plus bg-base-100 border border-base-300 my-4 px-5">
+                <input type="radio" name="my-accordion-3" />
+                <div class="collapse-title font-semibold">How does JavaScript Promises work?</div>
+                <div class="collapse-content text-sm">the Promise work "fulfilled" or "rejected" and .then() or .catch() handlers are executed."</div>
+            </div>
+            <div class="collapse collapse-plus bg-base-100 border border-base-300 my-4 px-5">
+                <input type="radio" name="my-accordion-3" />
+                <div class="collapse-title font-semibold">How does closures work in JavaScript?</div>
+                <div class="collapse-content text-sm">Closures work an inner function to access variables from outer function</div>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="flex justify-between items-end border-t border-t-gray-200 text-black px-10 py-3 mb-5">
+            <div>
+                <div class="flex items-center gap-1 text-2xl py-3">
+                    <h1>English</h1>
+                    <img src="./assets/logo.png" alt="Logo">
+                    <h1>জানালা</h1>
+                </div>
+                <p class="text-lg font-semibold py-2">ইংরেজি শিখুন সহজে</p>
+                <p>Providing ED-Tech Applications since 2025</p>
+            </div>
+            <div>
+                <p class="text-md py-4">Follow us</p>
+                <div class="flex items-center gap-5 text-3xl box-border">
+                    <i class="hover:text-sky-600 fa-brands fa-facebook"></i>
+                    <i class="hover:text-sky-600 fa-brands fa-github"></i>
+                    <i class="hover:text-sky-600 fa-brands fa-instagram"></i>
+                    <i class="hover:text-sky-600 fa-brands fa-youtube"></i>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Open the modal using ID.showModal() method -->
+    <dialog id="details_modal" class="modal">
+        <div id="modalBox" class="modal-box bg-white text-black">
+            
+        </div>
+        <form method="dialog" class="modal-backdrop">
+            <button>close</button>
+        </form>
+    </dialog>
+
+    <script src="app.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</body>
+</html>
